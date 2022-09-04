@@ -27,12 +27,12 @@
 
   <script type="text/javascript">
     var originText = '';
-    
+
     $(function() {
       originText = 'postMessage';
       $('#origin').text(originText);
     });
-    
+
     // 부모창에서 보내는 메시지 확인
     window.addEventListener('message', function(e) {
       var data = e.data;
@@ -48,6 +48,40 @@
       }
     });
 
+    function add(text) {
+      var result = originText + text;
+      returnParent('add', result);
+    }
+    
+    function replace(regExp) {
+      var result = originText.replace(regExp);
+      returnParent('replace', result);
+    }
+    
+    function indexOf(text) {
+      var result = originText.indexOf(text);
+      returnParent('indexOf', result);
+    }
+    
+    function length() {
+      var result = originText.length;
+      returnParent('length', result);
+    }
+    
+    // 결과를 세팅하고 부모창에 답장
+    function returnParent(func, result) {
+      $('#functionName').text(func);
+      $('#result').text(result);
+      
+      window.parent.postMessage(
+        {
+          func: func,
+          result: result
+        },
+        '*'
+      );
+    }
+
     // Null check
     function isNullStr(str) {
       str = str.trim();
@@ -57,20 +91,6 @@
         return false;
       }
     }
-    
-    // 데이터 세팅하기
-    function setTextFile(data) {
-      // 부모창에서 받아온 정보로 데이터를 세팅한다.
-      HwpCtrl.SetTextFile(data, 'HWP', '', function(result) {
-        window.parent.postMessage(
-          {
-            func: 'setTextFile',
-            msg: result.result, // 결과 Boolean 값
-          },
-          '*'
-        );
-      });
-    }    
   </script>
 </body>
 
