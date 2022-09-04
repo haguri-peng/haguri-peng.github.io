@@ -13,6 +13,7 @@
   
 <body width="100%" height="100%" style="background-color: lightgray; background-size: 100px; background-repeat: no-repeat; background-position: center">
   <div id="child" style="width: 100%; height: 100%; overflow: hidden">
+    <div>자식창</div>
     <div>
       <p>데이터 원본: <span id="origin"></span></p>
       <p>[add, replace, indexOf, length]만 호출 가능합니다.</p>
@@ -53,9 +54,9 @@
       returnParent('add', result);
     }
     
-    function replace(regExp) {
-      var result = originText.replace(regExp);
-      returnParent('replace', result);
+    function toUpper() {
+      var result = originText.toUpperCase();
+      returnParent('toUpper', result);
     }
     
     function indexOf(text) {
