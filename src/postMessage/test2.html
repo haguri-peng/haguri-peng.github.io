@@ -6,16 +6,10 @@
   
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
-      try {
+      setTimeout(function() {
         window.parent.postMessage(location.href, 'https://test.wanju.go.kr');
-      } catch (err) {
-        console.error('postMessage error >> ' + err);
-      }
+      }, 100);
     });
-    
-    window.onerror = function(message, source, line, column, error) {
-      console.error('[ERROR] >> ' + error);
-    };
   </script>
 </head>
 <body>
