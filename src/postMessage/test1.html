@@ -6,7 +6,11 @@
   
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
-      window.parent.postMessage(location.href, 'https://test.wanju.go.kr');
+      try {
+        window.parent.postMessage(location.href, 'https://test.wanju.go.kr');
+      } catch (err) {
+        console.error('postMessage error >> ' + err);
+      }
     });
   </script>
 </head>
