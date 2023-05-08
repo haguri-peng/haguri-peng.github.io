@@ -6,10 +6,16 @@
   
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
-      if (window.parent.location.host == 'test.wanju.go.kr') {
+      try {
         window.parent.postMessage(location.href, 'https://test.wanju.go.kr');
+      } catch (err) {
+        console.error('postMessage error >> ' + err);
       }
     });
+    
+    window.onerror = function(message, source, line, column, error) {
+      console.error('[ERROR] >> ' + error);
+    };
   </script>
 </head>
 <body>
