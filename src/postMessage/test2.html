@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>test2</title>
+  
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        window.parent.postMessage(location.href, 'https://test.wanju.go.kr');
+      }, 100);
+    });
+  </script>
+</head>
+<body>
+  <h1>TEST2</h1>
+  <a href="https://haguri-peng.github.io/src/postMessage/test1.html">TEST1 이동</a>
+</body>
+</html>

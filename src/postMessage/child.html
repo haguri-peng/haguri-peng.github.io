@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <base href="https://github.com/haguri-peng/test-file-repo/" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <title>postMessage 자식창</title>
+  
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+  
+<body width="100%" height="100%" style="background-color: lightgray; background-size: 100px; background-repeat: no-repeat; background-position: center">
+  <div id="child" style="width: 100%; height: 100%; overflow: hidden">
+    <div>자식창</div>
+    <div>
+      <p>데이터 원본: <span id="origin"></span></p>
+      <p>[add, upper, indexOf, length]만 호출 가능합니다.</p>
+    </div>
+    <div>
+      호출한 function: <span id="functionName"></span>
+    </div>
+    <div>
+      결과: <span id="result"></span>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var originText = '';
+
+    $(function() {
+      originText = 'postMessage';
+      $('#origin').text(originText);
+    });
+
+    // 부모창에서 보내는 메시지 확인
+    window.addEventListener('message', function(e) {
+      var data = e.data;
+
+      // 부모창에서 자식창으로 메시지를 전달할 땐 아래와 같은 규칙을 정했습니다.
+      // { func: 호출할 함수명, param: 파라미터 }
+      // 함수명 확인 후, 해당 함수를 실행
+      if (typeof (window[data.func] == 'function')) {
+        var execFunc = new Function('return ' + data.func)();
+        var param = data.param;
+        
+        execFunc(param);
+      }
+    });
+
+    function add(text) {
+      var result = originText + text;
+      returnParent('add', result);
+    }
+    
+    function toUpper() {
+      var result = originText.toUpperCase();
+      returnParent('toUpper', result);
+    }
+    
+    function indexOf(text) {
+      var result = originText.indexOf(text);
+      returnParent('indexOf', result);
+    }
+    
+    function length() {
+      var result = originText.length;
+      returnParent('length', result);
+    }
+    
+    // 결과를 세팅하고 부모창에 답장
+    function returnParent(func, result) {
+      $('#functionName').text(func);
+      $('#result').text(result);
+      
+      window.parent.postMessage(
+        {
+          func: func,
+          result: result
+        },
+        '*'
+      );
+    }
+
+    // Null check
+    function isNullStr(str) {
+      str = str.trim();
+      if (str == null || str == 'undefined' || str.length == 0 || typeof str == 'undefined' || str == '') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
+</body>
+
+</html>
