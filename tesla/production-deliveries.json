@@ -1,4 +1,10 @@
 {
+  "2021" : [
+    { "production" : 180338, "deliveries" : 184800 },
+    { "production" : 206421, "deliveries" : 201250 },
+    { "production" : 237823, "deliveries" : 241300 },
+    { "production" : 305840, "deliveries" : 308600 },
+  ],
   "2022" : [
     { "production" : 305407, "deliveries" : 310048 },
     { "production" : 258580, "deliveries" : 254695 },
