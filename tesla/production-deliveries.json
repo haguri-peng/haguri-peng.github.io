@@ -1,4 +1,28 @@
 {
+  "2017" : [
+    { "production" : 25418, "deliveries" : 25051 },
+    { "production" : 25708, "deliveries" : 22026 },
+    { "production" : 25336, "deliveries" : 26150 },
+    { "production" : 24565, "deliveries" : 29870 }
+  ],
+  "2018" : [
+    { "production" : 34494, "deliveries" : 29980 },
+    { "production" : 53339, "deliveries" : 40740 },
+    { "production" : 80142, "deliveries" : 83500 },
+    { "production" : 86555, "deliveries" : 90700 }
+  ],
+  "2019" : [
+    { "production" : 77100, "deliveries" : 63000 },
+    { "production" : 87048, "deliveries" : 95200 },
+    { "production" : 96155, "deliveries" : 97000 },
+    { "production" : 104891, "deliveries" : 112000 }
+  ],
+  "2020" : [
+    { "production" : 102672, "deliveries" : 88400 },
+    { "production" : 82272, "deliveries" : 90650 },
+    { "production" : 145036, "deliveries" : 139300 },
+    { "production" : 179757, "deliveries" : 180570 }
+  ],
   "2021" : [
     { "production" : 180338, "deliveries" : 184800 },
     { "production" : 206421, "deliveries" : 201250 },
