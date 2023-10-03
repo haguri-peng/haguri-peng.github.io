@@ -37,6 +37,7 @@
   ],
   "2023" : [
     { "production" : 440808, "deliveries" : 422875 },
-    { "production" : 479700, "deliveries" : 466140 }
+    { "production" : 479700, "deliveries" : 466140 },
+    { "production" : 430488, "deliveries" : 435059 }
   ]
 }
