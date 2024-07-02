@@ -42,6 +42,7 @@
     { "production" : 494989, "deliveries" : 484507 }
   ],
   "2024" : [
-    { "production" : 433371, "deliveries" : 386810 }
+    { "production" : 433371, "deliveries" : 386810 },
+    { "production" : 410831, "deliveries" : 443956 }
   ]
 }
