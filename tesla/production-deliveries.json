@@ -46,5 +46,8 @@
     { "production" : 410831, "deliveries" : 443956 },
     { "production" : 469796, "deliveries" : 462890 },
     { "production" : 459445, "deliveries" : 495570 }
+  ],
+  "2025": [
+    { "production" : 362615, "deliveries" : 336681	 }
   ]
 }
